@@ -13,8 +13,8 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:textAppearance="?android:attr/textAppearanceLarge"
-        android:text="@string/title"
-        android:id="@+id/title"
+        android:text="@string/title_of_lesson"
+        android:id="@+id/title_of_lesson"
         android:layout_alignParentTop="true"
         android:layout_alignRight="@+id/name_of_teacher"
         android:layout_alignEnd="@+id/name_of_teacher" />
@@ -25,7 +25,7 @@
         android:textAppearance="?android:attr/textAppearanceLarge"
         android:text="@string/name_of_teacher"
         android:id="@+id/name_of_teacher"
-        android:layout_below="@+id/title"
+        android:layout_below="@+id/title_of_lesson"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true" />
 
@@ -36,15 +36,15 @@
         android:text="@string/number_of_class"
         android:id="@+id/number_of_class"
         android:layout_below="@+id/name_of_teacher"
-        android:layout_alignLeft="@+id/title"
-        android:layout_alignStart="@+id/title" />
+        android:layout_alignLeft="@+id/title_of_lesson"
+        android:layout_alignStart="@+id/title_of_lesson" />
 
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:textAppearance="?android:attr/textAppearanceLarge"
         android:text="@string/time_of_starting"
-        android:id="@+id/starting_time"
+        android:id="@+id/time_of_starting"
         android:layout_below="@+id/number_of_class"
         android:layout_alignLeft="@+id/number_of_class"
         android:layout_alignStart="@+id/number_of_class" />
@@ -54,8 +54,8 @@
         android:layout_height="wrap_content"
         android:textAppearance="?android:attr/textAppearanceLarge"
         android:text="@string/time_of_ending"
-        android:id="@+id/textView5"
-        android:layout_below="@+id/starting_time"
+        android:id="@+id/time_of_ending"
+        android:layout_below="@+id/time_of_starting"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true" />
 

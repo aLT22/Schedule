@@ -13,15 +13,17 @@
     tools:showIn="@layout/activity_main">
 
     <Spinner
+        android:id="@+id/spinner"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:entries="@array/days_of_the_week"
+        android:clickable="true"
         android:layout_weight="1"
-        android:id="@+id/spinner" />
+        android:entries="@array/days_of_the_week" />
 
     <ListView
+        android:id="@+id/listView"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_weight="1"
-        android:id="@+id/listView" />
+        android:entries="@array/test"
+        android:layout_weight="1" />
 </LinearLayout>

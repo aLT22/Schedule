@@ -18,4 +18,5 @@
         <item>Встреча</item>
         <item>Свободное время</item>
     </string-array>
+    <string name="add_affair">Добавить...</string>
 </resources>

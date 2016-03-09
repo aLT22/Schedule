@@ -16,9 +16,7 @@ public class TopLevelOne extends AppCompatActivity {
         AdapterView.OnItemClickListener itemClickListener = new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                /*if (position == ){
 
-                }*/
             }
         };
         ListView todaysAffairs = (ListView) findViewById(R.id.affairListView);

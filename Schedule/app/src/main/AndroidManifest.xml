@@ -1,14 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.example.alexey.schedule" >
+    package="com.example.alexey.schedule">
 
     <application
         android:allowBackup="true"
         android:icon="@drawable/starticon"
         android:label="@string/app_name"
         android:supportsRtl="true"
-        android:theme="@style/AppTheme" >
-        <activity android:name=".TopLevelOne" >
+        android:theme="@style/AppTheme">
+        <activity android:name=".TopLevelOne">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -21,16 +21,18 @@
         <activity
             android:name=".References"
             android:label="@string/reference" />
-        <activity android:name=".MiddleLevelTwo" >
-        </activity>
-        <activity android:name=".MiddleLevelThree" >
-        </activity>
-        <activity android:name=".BottomLevelOne" >
-        </activity>
-        <activity android:name=".BottomLevelTwo" >
-        </activity>
-        <activity android:name=".BottomLevelThree" >
-        </activity>
+        <activity
+            android:name=".MiddleLevelTwo"
+            android:label="@string/category_affairs" />
+        <activity
+            android:name=".MiddleLevelThree"
+            android:label="@string/affairs" />
+        <activity
+            android:name=".BottomLevelOne"
+            android:label="@string/affair_info" />
+        <activity
+            android:name=".BottomLevelTwo"
+            android:label="@string/add_affair" />
     </application>
 
 </manifest>

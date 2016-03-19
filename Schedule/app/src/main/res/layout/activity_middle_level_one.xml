@@ -13,12 +13,12 @@
         android:id="@+id/slCategoriesListView"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_alignParentBottom="true"
+        android:entries="@array/available_categories"
+        android:layout_alignParentTop="true"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true"
         android:layout_toLeftOf="@+id/slAddCategoryTextView"
-        android:layout_toStartOf="@+id/slAddCategoryTextView"
-        android:entries="@array/available_categories" />
+        android:layout_toStartOf="@+id/slAddCategoryTextView" />
 
     <TextView
         android:id="@+id/slAddCategoryTextView"
@@ -27,6 +27,7 @@
         android:layout_alignParentEnd="true"
         android:layout_alignParentRight="true"
         android:layout_alignTop="@+id/slCategoriesListView"
+        android:onClick="onAddCategoryClick"
         android:paddingLeft="@dimen/indent"
         android:text="@string/add_category"
         android:textAppearance="?android:attr/textAppearanceMedium" />

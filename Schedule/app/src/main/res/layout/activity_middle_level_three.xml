@@ -27,6 +27,7 @@
         android:layout_alignParentRight="true"
         android:layout_alignParentTop="true"
         android:paddingLeft="@dimen/indent"
+        android:onClick="onAddAffairClick"
         android:text="@string/add_affair"
         android:textAppearance="?android:attr/textAppearanceMedium" />
 </RelativeLayout>

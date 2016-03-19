@@ -31,7 +31,8 @@ public class TopLevelOne extends AppCompatActivity {
 
     //Вызов активити со списком дел
     public void onAffairsClick(View view){
-        Intent intent = new Intent();
+        Intent intentTwo = new Intent(this, MiddleLevelThree.class);
+        startActivity(intentTwo);
     }
 
     //Вызов активити со справочным материалом

@@ -26,6 +26,7 @@
         android:layout_alignParentEnd="true"
         android:layout_alignParentRight="true"
         android:layout_alignTop="@+id/slAffairsInConcreteCategoryListView"
+        android:onClick="onAddAffairClick"
         android:paddingLeft="@dimen/indent"
         android:text="@string/add_affair"
         android:textAppearance="?android:attr/textAppearanceMedium" />

@@ -33,6 +33,9 @@
         <activity
             android:name=".BottomLevelTwo"
             android:label="@string/add_affair" />
+        <activity
+            android:name=".BottomLevelThree"
+            android:label="@string/add_category" />
     </application>
 
 </manifest>

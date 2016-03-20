@@ -14,7 +14,7 @@ public class MiddleLevelTwo extends AppCompatActivity {
     }
 
     private void onAddAffairClick(View view){
-        Intent intent = new Intent(this, BottomLevelOne.class);
+        Intent intent = new Intent(this, BottomLevelThree.class);
         startActivity(intent);
     }
 }

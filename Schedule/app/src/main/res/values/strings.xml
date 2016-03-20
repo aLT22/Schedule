@@ -26,4 +26,6 @@
     <string name="time_of_affair">Время</string>
     <string name="description_of_affair">Описание</string>
     <string name="category_of_affair">Категория</string>
+    <string name="category_name">Название категории</string>
+    <string name="accept">Добавить</string>
 </resources>

@@ -27,66 +27,69 @@
         android:layout_alignParentEnd="true"
         android:layout_alignParentRight="true"
         android:layout_below="@+id/tlDateOfAffairTextViewTitle"
-        android:text="..."
-        android:textAppearance="?android:attr/textAppearanceMedium" />
-
-    <TextView
-        android:id="@+id/tlTimeOfAffairTextViewTitle"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true"
-        android:layout_below="@+id/tlDateOfAffairTextView"
-        android:text="@string/time_of_affair"
-        android:textAppearance="?android:attr/textAppearanceMedium" />
-
-    <TextView
-        android:id="@+id/tlTimeOfAffairTextView"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignEnd="@+id/tlDateOfAffairTextView"
-        android:layout_alignRight="@+id/tlDateOfAffairTextView"
-        android:layout_below="@+id/tlTimeOfAffairTextViewTitle"
-        android:text="..."
-        android:textAppearance="?android:attr/textAppearanceMedium" />
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:layout_toEndOf="@+id/tlCategoryOfAffairTextViewTitle"
+        android:layout_toRightOf="@+id/tlCategoryOfAffairTextViewTitle" />
 
     <TextView
         android:id="@+id/tlCategoryOfAffairTextViewTitle"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:text="@string/category_of_affair"
+        android:textAppearance="?android:attr/textAppearanceMedium"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true"
-        android:layout_below="@+id/tlTimeOfAffairTextView"
-        android:text="@string/category_of_affair"
-        android:textAppearance="?android:attr/textAppearanceMedium" />
+        android:layout_below="@+id/tlDateOfAffairTextView" />
 
     <TextView
         android:id="@+id/tlCategoryOfAffairTextView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignEnd="@+id/tlTimeOfAffairTextView"
-        android:layout_alignRight="@+id/tlTimeOfAffairTextView"
         android:layout_below="@+id/tlCategoryOfAffairTextViewTitle"
-        android:text="..."
-        android:textAppearance="?android:attr/textAppearanceMedium" />
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:layout_toRightOf="@+id/tlCategoryOfAffairTextViewTitle"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true" />
 
     <TextView
         android:id="@+id/tlDescriptionOfAffairTextViewTitle"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true"
-        android:layout_below="@+id/tlCategoryOfAffairTextView"
         android:text="@string/description_of_affair"
-        android:textAppearance="?android:attr/textAppearanceMedium" />
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:layout_below="@+id/tlCategoryOfAffairTextView"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true" />
 
     <TextView
         android:id="@+id/tlDescriptionOfAffairTextView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignEnd="@+id/tlCategoryOfAffairTextView"
-        android:layout_alignRight="@+id/tlCategoryOfAffairTextView"
+        android:textAppearance="?android:attr/textAppearanceMedium"
         android:layout_below="@+id/tlDescriptionOfAffairTextViewTitle"
-        android:text="..."
-        android:textAppearance="?android:attr/textAppearanceMedium" />
+        android:layout_alignRight="@+id/tlCategoryOfAffairTextView"
+        android:layout_alignEnd="@+id/tlCategoryOfAffairTextView"
+        android:layout_toRightOf="@+id/tlDescriptionOfAffairTextViewTitle"
+        android:layout_toEndOf="@+id/tlDescriptionOfAffairTextViewTitle" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:text="@string/name_of_affair"
+        android:id="@+id/textView3"
+        android:layout_below="@+id/tlDescriptionOfAffairTextView"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:id="@+id/textView4"
+        android:layout_below="@+id/textView3"
+        android:layout_alignRight="@+id/tlCategoryOfAffairTextView"
+        android:layout_alignEnd="@+id/tlCategoryOfAffairTextView"
+        android:layout_alignLeft="@+id/tlCategoryOfAffairTextView"
+        android:layout_alignStart="@+id/tlCategoryOfAffairTextView" />
 </RelativeLayout>

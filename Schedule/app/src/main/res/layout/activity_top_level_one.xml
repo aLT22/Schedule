@@ -16,17 +16,19 @@
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true"
         android:layout_below="@+id/affairTextView"
-        android:layout_toLeftOf="@+id/categoryTextView" />
+        android:layout_toLeftOf="@+id/affairsTextView"
+        android:layout_toStartOf="@+id/affairsTextView" />
 
     <TextView
         android:id="@+id/affairTextView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true"
-        android:layout_alignParentTop="true"
         android:paddingBottom="@dimen/indent"
-        android:text="@string/today_affairs" />
+        android:text="@string/today_affairs"
+        android:textColor="@color/colorPrimaryDark"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true" />
 
     <TextView
         android:id="@+id/categoryTextView"
@@ -35,10 +37,13 @@
         android:layout_alignParentEnd="true"
         android:layout_alignParentRight="true"
         android:layout_alignTop="@+id/affairListView"
+        android:textColor="@color/colorPrimaryDark"
         android:onClick="onCategoriesClick"
         android:paddingLeft="@dimen/indent"
         android:text="@string/categories"
-        android:textAppearance="?android:attr/textAppearanceMedium" />
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:layout_alignLeft="@+id/affairsTextView"
+        android:layout_alignStart="@+id/affairsTextView" />
 
     <TextView
         android:id="@+id/affairsTextView"
@@ -49,6 +54,7 @@
         android:layout_below="@+id/categoryTextView"
         android:layout_marginTop="40dp"
         android:onClick="onAffairsClick"
+        android:textColor="@color/colorPrimaryDark"
         android:text="@string/affairs"
         android:textAppearance="?android:attr/textAppearanceMedium" />
 
@@ -61,6 +67,7 @@
         android:layout_below="@+id/affairsTextView"
         android:layout_marginTop="40dp"
         android:onClick="onRefClick"
+        android:textColor="@color/colorPrimaryDark"
         android:text="@string/reference"
         android:textAppearance="?android:attr/textAppearanceMedium" />
 

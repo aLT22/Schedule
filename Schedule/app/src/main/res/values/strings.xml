@@ -18,14 +18,16 @@
         <item>Встреча</item>
         <item>Свободное время</item>
     </string-array>
-    <string name="add_affair">Добавить...</string>
-    <string name="add_category">Добавить категорию...</string>
+    <string name="add_affair">Добавить</string>
+    <string name="add_category">Добавить категорию</string>
     <string name="category_affairs">Список дел категории</string>
     <string name="affair_info">Информация о деле</string>
     <string name="date_of_affair">Дата</string>
     <string name="time_of_affair">Время</string>
+    <string name="name_of_affair">Название</string>
     <string name="description_of_affair">Описание</string>
     <string name="category_of_affair">Категория</string>
     <string name="category_name">Название категории</string>
     <string name="accept">Добавить</string>
+    <string name="category">Категория</string>
 </resources>

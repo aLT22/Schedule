@@ -29,5 +29,6 @@
         android:paddingLeft="@dimen/indent"
         android:onClick="onAddAffairClick"
         android:text="@string/add_affair"
+        android:textColor="@color/colorPrimaryDark"
         android:textAppearance="?android:attr/textAppearanceMedium" />
 </RelativeLayout>

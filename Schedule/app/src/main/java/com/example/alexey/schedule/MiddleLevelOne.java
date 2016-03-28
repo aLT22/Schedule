@@ -7,7 +7,11 @@ import android.database.sqlite.SQLiteException;
 import android.database.sqlite.SQLiteOpenHelper;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.view.ContextMenu;
+import android.view.MenuInflater;
+import android.view.MenuItem;
 import android.view.View;
+import android.widget.AdapterView;
 import android.widget.CursorAdapter;
 import android.widget.ListView;
 import android.widget.SimpleCursorAdapter;
@@ -18,12 +22,13 @@ import android.widget.Toast;
 public class MiddleLevelOne extends AppCompatActivity {
     private SQLiteDatabase db;
     private Cursor cursor;
+    ListView listView;
 
     @Override
-    protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_middle_level_one);
-        ListView listView = (ListView) findViewById(R.id.slCategoriesListView);
+    protected void onResume() {
+        super.onResume();
+        listView = (ListView) findViewById(R.id.slCategoriesListView);
+        registerForContextMenu(listView);
         try{
             SQLiteOpenHelper affairsDataBaseHelper = new AffairsDataBaseHelper(this);
             db = affairsDataBaseHelper.getReadableDatabase();
@@ -33,11 +38,54 @@ public class MiddleLevelOne extends AppCompatActivity {
             CursorAdapter listAdapter = new SimpleCursorAdapter(this,
                     android.R.layout.simple_list_item_1, cursor,
                     new String[]{"NAME"}, new int[]{android.R.id.text1}, 0);
+            listAdapter.changeCursor(cursor);
             listView.setAdapter(listAdapter);
         } catch (SQLiteException ex){
             Toast toast = Toast.makeText(this, "SQLITE EXCEPTION", Toast.LENGTH_SHORT);
             toast.show();
         }
+    }
+
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_middle_level_one);
+    }
+
+    @Override
+    public void onCreateContextMenu(ContextMenu menu, View v, ContextMenu.ContextMenuInfo menuInfo) {
+        super.onCreateContextMenu(menu, v, menuInfo);
+        MenuInflater inflater = getMenuInflater();
+        inflater.inflate(R.menu.middle_level_one_context_menu, menu);
+    }
+
+    @Override
+    public boolean onContextItemSelected(MenuItem item) {
+        SQLiteOpenHelper affairsDataBaseHelper = new AffairsDataBaseHelper(this);
+        db = affairsDataBaseHelper.getReadableDatabase();
+        listView = (ListView) findViewById(R.id.slCategoriesListView);
+        switch (item.getItemId()){
+            case R.id.deleteCategory:
+                AdapterView.AdapterContextMenuInfo adapterContextMenuInfo = (AdapterView.AdapterContextMenuInfo) item.getMenuInfo();
+                db.delete("CATEGORY", "_id = ?", new String[]{String.valueOf(adapterContextMenuInfo.id)});
+                cursor = db.query("CATEGORY",
+                        new String[]{"_id", "NAME"},
+                        null, null, null, null, null);
+                CursorAdapter listAdapter = new SimpleCursorAdapter(this,
+                        android.R.layout.simple_list_item_1, cursor,
+                        new String[]{"NAME"}, new int[]{android.R.id.text1}, 0);
+                listAdapter.changeCursor(cursor);
+                listView.setAdapter(listAdapter);
+                Toast.makeText(this, "Вы удалили категорию", Toast.LENGTH_SHORT).show();
+                break;
+            case R.id.rewriteCategory:
+                Intent intent = new Intent(this, BottomLevelFour.class);
+                startActivity(intent);
+                break;
+            default:
+                return super.onContextItemSelected(item);
+        }
+        return true;
     }
 
     public void onAddCategoryClick(View view){

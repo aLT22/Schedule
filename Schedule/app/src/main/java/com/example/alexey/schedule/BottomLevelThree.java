@@ -1,13 +1,17 @@
 package com.example.alexey.schedule;
 
 import android.content.ContentValues;
+import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.CursorAdapter;
 import android.widget.EditText;
+import android.widget.SimpleCursorAdapter;
 import android.widget.TextView;
+import android.widget.Toast;
 
 public class BottomLevelThree extends AppCompatActivity {
 
@@ -20,10 +24,15 @@ public class BottomLevelThree extends AppCompatActivity {
     public void onAddConcreteCategoryClick(View view){
         EditText writeCategoryName = (EditText) findViewById(R.id.writeCategoryName);
         String categoryName = writeCategoryName.getText().toString();
-        ContentValues contentValues = new ContentValues();
-        contentValues.put("NAME", categoryName);
-        SQLiteOpenHelper affairsDataBaseHelper = new AffairsDataBaseHelper(this);
-        SQLiteDatabase db = affairsDataBaseHelper.getWritableDatabase();
-        db.insert("CATEGORY", null, contentValues);
+        if (categoryName.equals("")){
+            Toast.makeText(this, "Пустое название категории не допускается", Toast.LENGTH_LONG).show();
+        } else {
+            ContentValues contentValues = new ContentValues();
+            contentValues.put("NAME", categoryName);
+            SQLiteOpenHelper affairsDataBaseHelper = new AffairsDataBaseHelper(this);
+            SQLiteDatabase db = affairsDataBaseHelper.getWritableDatabase();
+            db.insert("CATEGORY", null, contentValues);
+            Toast.makeText(this, "Добавлена новая категория " + categoryName, Toast.LENGTH_LONG).show();
+        }
     }
 }

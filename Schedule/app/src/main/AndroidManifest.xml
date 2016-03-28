@@ -36,6 +36,9 @@
         <activity
             android:name=".BottomLevelThree"
             android:label="@string/add_category" />
+        <activity
+            android:name=".BottomLevelFour"
+            android:label="@string/bottom_level_four_name"></activity>
     </application>
 
 </manifest>

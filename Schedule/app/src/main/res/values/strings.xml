@@ -30,4 +30,7 @@
     <string name="category_name">Название категории</string>
     <string name="accept">Добавить</string>
     <string name="category">Категория</string>
+    <string name="delete_category">Удалить категорию</string>
+    <string name="rewrite_category">Редактировать название</string>
+    <string name="bottom_level_four_name">Редактирование категории</string>
 </resources>

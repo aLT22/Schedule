@@ -23,7 +23,7 @@ public class AffairsDataBaseHelper extends SQLiteOpenHelper {
     public void onCreate(SQLiteDatabase db) {
         db.execSQL("CREATE TABLE CATEGORY ("
                 + "_id INTEGER PRIMARY KEY AUTOINCREMENT, "
-                + "NAME TEXT NOT NULL);");
+                + "NAME TEXT NOT NULL UNIQUE);");
         fillingDB("CATEGORY", "NAME", "Бизнес", db);
         fillingDB("CATEGORY", "NAME", "Спорт", db);
         fillingDB("CATEGORY", "NAME", "Встреча", db);

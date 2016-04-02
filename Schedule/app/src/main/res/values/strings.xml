@@ -33,4 +33,7 @@
     <string name="delete_category">Удалить категорию</string>
     <string name="rewrite_category">Редактировать название</string>
     <string name="bottom_level_four_name">Редактирование категории</string>
+    <string name="current_category_name">Текущее название категории</string>
+    <string name="enter_new_category_name">Введите новое название</string>
+    <string name="change">Изменить</string>
 </resources>

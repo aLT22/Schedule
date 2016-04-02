@@ -18,11 +18,14 @@ import android.widget.SimpleCursorAdapter;
 import android.widget.Spinner;
 import android.widget.Toast;
 
+import static android.widget.Toast.*;
+
 
 public class MiddleLevelOne extends AppCompatActivity {
+    private SQLiteOpenHelper affairsDataBaseHelper;
     private SQLiteDatabase db;
     private Cursor cursor;
-    ListView listView;
+    private ListView listView;
 
     @Override
     protected void onResume() {
@@ -30,7 +33,7 @@ public class MiddleLevelOne extends AppCompatActivity {
         listView = (ListView) findViewById(R.id.slCategoriesListView);
         registerForContextMenu(listView);
         try{
-            SQLiteOpenHelper affairsDataBaseHelper = new AffairsDataBaseHelper(this);
+            affairsDataBaseHelper = new AffairsDataBaseHelper(this);
             db = affairsDataBaseHelper.getReadableDatabase();
             cursor = db.query("CATEGORY",
                     new String[]{"_id", "NAME"},
@@ -41,7 +44,7 @@ public class MiddleLevelOne extends AppCompatActivity {
             listAdapter.changeCursor(cursor);
             listView.setAdapter(listAdapter);
         } catch (SQLiteException ex){
-            Toast toast = Toast.makeText(this, "SQLITE EXCEPTION", Toast.LENGTH_SHORT);
+            Toast toast = makeText(this, "SQLITE EXCEPTION", LENGTH_SHORT);
             toast.show();
         }
     }
@@ -50,6 +53,7 @@ public class MiddleLevelOne extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_middle_level_one);
+        listView = (ListView) findViewById(R.id.slCategoriesListView);
     }
 
     @Override
@@ -61,29 +65,31 @@ public class MiddleLevelOne extends AppCompatActivity {
 
     @Override
     public boolean onContextItemSelected(MenuItem item) {
-        SQLiteOpenHelper affairsDataBaseHelper = new AffairsDataBaseHelper(this);
-        db = affairsDataBaseHelper.getReadableDatabase();
-        listView = (ListView) findViewById(R.id.slCategoriesListView);
-        switch (item.getItemId()){
-            case R.id.deleteCategory:
-                AdapterView.AdapterContextMenuInfo adapterContextMenuInfo = (AdapterView.AdapterContextMenuInfo) item.getMenuInfo();
-                db.delete("CATEGORY", "_id = ?", new String[]{String.valueOf(adapterContextMenuInfo.id)});
-                cursor = db.query("CATEGORY",
-                        new String[]{"_id", "NAME"},
-                        null, null, null, null, null);
-                CursorAdapter listAdapter = new SimpleCursorAdapter(this,
-                        android.R.layout.simple_list_item_1, cursor,
-                        new String[]{"NAME"}, new int[]{android.R.id.text1}, 0);
-                listAdapter.changeCursor(cursor);
-                listView.setAdapter(listAdapter);
-                Toast.makeText(this, "Вы удалили категорию", Toast.LENGTH_SHORT).show();
-                break;
-            case R.id.rewriteCategory:
-                Intent intent = new Intent(this, BottomLevelFour.class);
-                startActivity(intent);
-                break;
-            default:
-                return super.onContextItemSelected(item);
+        try {
+            listView = (ListView) findViewById(R.id.slCategoriesListView);
+            switch (item.getItemId()) {
+                case R.id.deleteCategory:
+                    AdapterView.AdapterContextMenuInfo adapterContextMenuInfo = (AdapterView.AdapterContextMenuInfo) item.getMenuInfo();
+                    db.delete("CATEGORY", "_id = ?", new String[]{String.valueOf(adapterContextMenuInfo.id)});
+                    cursor = db.query("CATEGORY",
+                            new String[]{"_id", "NAME"},
+                            null, null, null, null, null);
+                    CursorAdapter listAdapter = new SimpleCursorAdapter(this,
+                            android.R.layout.simple_list_item_1, cursor,
+                            new String[]{"NAME"}, new int[]{android.R.id.text1}, 0);
+                    listView.setAdapter(listAdapter);
+                    makeText(this, "Вы удалили категорию", LENGTH_SHORT).show();
+                    break;
+                case R.id.rewriteCategory:
+                    Intent intent = new Intent(this, BottomLevelFour.class);
+                    startActivity(intent);
+                    break;
+                default:
+                    return super.onContextItemSelected(item);
+            }
+        }
+        catch (SQLiteException e) {
+            makeText(this, "Ошибка работы базы данных", LENGTH_LONG).show();
         }
         return true;
     }

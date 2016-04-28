@@ -54,8 +54,6 @@ public class BottomLevelThree extends AppCompatActivity {
                     db.insert("CATEGORY", null, contentValues);
                     Toast.makeText(this, "Добавлена новая категория " + categoryName, Toast.LENGTH_LONG).show();
                 }
-                Intent intent = new Intent(this, MiddleLevelOne.class);
-                startActivity(intent);
             }
             catch (SQLiteException e){
                 Toast.makeText(this, "Ошибка записи в базу данных", Toast.LENGTH_LONG).show();

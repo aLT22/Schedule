@@ -34,7 +34,9 @@ public class AffairsDataBaseHelper extends SQLiteOpenHelper {
                 + "_id INTEGER PRIMARY KEY AUTOINCREMENT, "
                 + "NAME TEXT NOT NULL, "
                 + "DESCRIPTION TEXT, "
-                + "DATE TEXT, "
+                + "DAY INTEGER, "
+                + "MONTH INTEGER, "
+                + "YEAR INTEGER, "
                 + "CATGRY INTEGER NOT NULL, "
                 + "FOREIGN KEY (CATGRY) REFERENCES CATEGORY (_id));");
     }
